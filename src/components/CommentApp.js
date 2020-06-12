@@ -41,11 +41,11 @@ function CommentApp() {
         spacing={2}
       >
         {/* Formulario */}
-        <Grid item xs={11} sm={8} lg={4}>
+        <Grid item xs={11} sm={10} md={5} lg={4}>
           <Form addComment={addComment} />
         </Grid>
         {/* Lista de comentarios */}
-        <Grid item xs={11} sm={8} lg={4}>
+        <Grid item xs={11} sm={10} md={5} lg={4}>
           <CommentList comments={comments} fetchComments={fetchComments} playComment={playComment} />
         </Grid>
       </Grid>
