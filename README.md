@@ -4,7 +4,7 @@ Dois painéis, um formulário para adicionar o comentário a um banco de dados M
 
 ## Iniciar localmente
 
-Para rodar localmente, editar o arquivo .env com host, usuário e senha do MySQL que irá se conectar.
+Para rodar localmente, criar o arquivo .env no / com host, usuário e senha do MySQL que irá se conectar:
 
 ```
 DB_HOST=
@@ -13,7 +13,7 @@ DB_PASS=
 ```
 
 
-1. instalar dependencias
+1. instalar dependências
 
 ```
 npm install
