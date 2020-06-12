@@ -29,7 +29,7 @@ export default () => {
         responseType: "blob",
       })
         .then((response) => {
-          var blob = new Blob([response.data], { type: "audio/mp3" });
+          var blob = new Blob([response.data], { type: "audio/webm" });
           var url = window.URL.createObjectURL(blob);
           window.audio = new Audio();
           window.audio.src = url;
