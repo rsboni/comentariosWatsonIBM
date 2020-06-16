@@ -6,6 +6,8 @@ import List from "@material-ui/core/List";
 import Divider from "@material-ui/core/Divider";
 import Comment from "../components/Comment";
 import CircularProgress from "@material-ui/core/CircularProgress";
+import ListItem from "@material-ui/core/ListItem";
+import ListItemText from "@material-ui/core/ListItemText";
 
 export default function ComentList({
   comments,
@@ -21,7 +23,10 @@ export default function ComentList({
   return (
     <Paper>
       <List>
-        {isLoading === "all" ? (
+      
+        {comments.length <= 0 ? (
+          <ListItem><ListItemText>Nenhum comentário a ser exibido.</ListItemText></ListItem>
+        ) : isLoading === "all" ? (
           <CircularProgress />
         ) : (
           comments.map((comment, i) => (
