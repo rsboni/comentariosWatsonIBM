@@ -15,7 +15,7 @@ import Form from "./Form";
 import useCommentState from "../hooks/useCommentState";
 
 function CommentApp() {
-  const { comments, fetchComments, addComment, playComment } = useCommentState();
+  const { comments, fetchComments, addComment, playComment, isLoading } = useCommentState();
 
   return (
     <Paper
@@ -46,7 +46,7 @@ function CommentApp() {
         </Grid>
         {/* Lista de comentarios */}
         <Grid item xs={11} sm={10} md={5} lg={4}>
-          <CommentList comments={comments} fetchComments={fetchComments} playComment={playComment} />
+          <CommentList comments={comments} fetchComments={fetchComments} playComment={playComment} isLoading={isLoading} />
         </Grid>
       </Grid>
     </Paper>

@@ -5,7 +5,8 @@ import axios from "axios";
 // retorna um objeto {comments, fetchComments, addComment, playComment}
 export default () => {
   const [comments, setComments] = useState([]);
-  
+  const [isLoading, setIsLoading] = useState(false);
+
   //Setup da API
   const API = axios.create({
     baseURL: `http://localhost:4000/`,
@@ -13,8 +14,8 @@ export default () => {
 
   return {
     comments,
-    fetchComments: () => {
-      API.get("comments").then((res) => setComments(res.data));
+    fetchComments: async () => {
+      await API.get("comments").then((res) => setComments(res.data));
     },
     addComment: (newText) => {
       API.post(`comments/add?text=${newText}`).then((res) => {
@@ -22,8 +23,9 @@ export default () => {
         setComments(res.data);
       });
     },
-    playComment: (text) => {
-      axios({
+    playComment: async (text, id) => {
+      setIsLoading(id);
+      await axios({
         method: "get",
         url: `http://localhost:4000/synthesize?text=${text}`,
         responseType: "blob",
@@ -38,6 +40,8 @@ export default () => {
         .catch((error) => {
           console.log(error);
         });
+      setIsLoading(false);
     },
+    isLoading,
   };
 };
