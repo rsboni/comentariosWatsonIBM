@@ -19,7 +19,6 @@ export default () => {
     },
     addComment: (newText) => {
       API.post(`comments/add?text=${newText}`).then((res) => {
-        console.log(res.data);
         setComments(res.data);
       });
     },
