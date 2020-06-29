@@ -39,10 +39,10 @@ connection.query("CREATE DATABASE IF NOT EXISTS commentsdb", (err) => {
 //  Setup do Watson TTS
 const textToSpeech = new TextToSpeechV1({
   authenticator: new IamAuthenticator({
-    apikey: "AOFMzHF5xF3IimFX9y2f5okqOrRvaEPG0wp8_HHa2qRA",
+    apikey: process.env.APIKEY,
   }),
   url:
-    "https://api.us-east.text-to-speech.watson.cloud.ibm.com/instances/9e45c5f3-1781-4ec5-a5d8-937bee0842cc",
+    process.env.APIURL,
 });
 
 // ***** ROTAS ******
